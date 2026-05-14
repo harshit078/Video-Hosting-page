@@ -1,0 +1,15 @@
+pids
+logs
+node_modules
+.node_history
+
+# Strapi
+
+.env
+license.txt
+exports
+.strapi
+dist
+build
+.strapi-updater.json
+.strapi-cloud.json
