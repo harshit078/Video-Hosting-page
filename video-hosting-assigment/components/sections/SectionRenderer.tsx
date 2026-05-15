@@ -4,6 +4,8 @@ import TrustedBySection from './TrustedBySection';
 import Testimonials from './Testimonials';
 import CallToActionCard from './CallToActionCard';
 import { FeatureBlocks } from './FeatureBlocks';
+import PricingCard from './PricingCard';
+import { FaqSection } from './FaqSection';
 
 export default function SectionRenderer({ section }: { section: Section }) {
   switch (section.__component) {
@@ -13,6 +15,10 @@ export default function SectionRenderer({ section }: { section: Section }) {
       return <TrustedBySection data={section} />;
     case 'sections.feature-blocks':
       return <FeatureBlocks data={section} />;
+    case 'sections.pricing':
+      return <PricingCard data={section} />;
+    case 'sections.faq':
+      return <FaqSection data={section} />;
     case 'sections.testimonials':
       return <Testimonials data={section} />;
     case 'sections.final-cta':

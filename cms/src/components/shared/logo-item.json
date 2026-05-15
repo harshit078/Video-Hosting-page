@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_logo_items",
+  "info": {
+    "displayName": "Logo Item",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "imageUrl": { "type": "string" }
+  }
+}

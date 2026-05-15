@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_logo_clouds",
+  "info": {
+    "displayName": "Logo Cloud",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "heading": { "type": "string" },
+    "logos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.logo-item"
+    }
+  }
+}

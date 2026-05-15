@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_shared_feature_items",
+  "info": {
+    "displayName": "Feature Item",
+    "icon": "puzzle-piece"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "heading": { "type": "string", "required": true },
+    "body": { "type": "text" },
+    "image": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": false
+    },
+    "iconName": {
+      "type": "enumeration",
+      "enum": ["gauge", "palette", "shield", "chart"],
+      "default": "gauge",
+      "required": true
+    },
+    "accentColor": {
+      "type": "enumeration",
+      "enum": ["blue", "purple", "emerald", "amber"],
+      "default": "blue",
+      "required": true
+    },
+    "colSpan": {
+      "type": "enumeration",
+      "enum": ["small", "large"],
+      "default": "small",
+      "required": true
+    }
+  }
+}

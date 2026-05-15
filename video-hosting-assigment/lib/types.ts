@@ -11,6 +11,13 @@ export type StrapiLink = {
   href: string;
 };
 
+export type SocialLink = {
+  id: number;
+  name: string;
+  url: string;
+  icon: StrapiMedia;
+};
+
 export type NavbarData = {
   id: number;
   logo: StrapiMedia;
@@ -29,8 +36,11 @@ export type FooterColumn = {
 export type FooterData = {
   id: number;
   logo: StrapiMedia;
+  tagline?: string;
+  socialLinks?: SocialLink[];
   columns: FooterColumn[];
   copyright?: string;
+  legalLinks?: StrapiLink[];
 };
 
 export type HeroSection = {
@@ -123,11 +133,27 @@ export type PricingSection = {
   trustItems?: Array<{ id: number; text: string }>;
 };
 
+export type FaqItem = {
+  id: number;
+  question: string;
+  answer: string;
+};
+
+export type FaqSection = {
+  __component: 'sections.faq';
+  id: number;
+  badge?: string;
+  heading?: string;
+  subheading?: string;
+  items: FaqItem[];
+};
+
 export type Section =
   | HeroSection
   | TrustedBySection
   | FeatureBlocksSection
   | PricingSection
+  | FaqSection
   | TestimonialsSection
   | CallToActionCardSection;
 

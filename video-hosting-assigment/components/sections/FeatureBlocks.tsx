@@ -28,7 +28,7 @@ export function FeatureBlocks({ data }: { data: FeatureBlocksSection }) {
   if (items.length === 0) return null;
 
   return (
-    <section className="bg-muted/40 py-24 lg:py-32">
+    <section className="bg-muted/40 py-6xl lg:py-7xl">
       <div className="section-container">
         <SectionHeader
           badge={data.badge ?? 'Built for video'}
@@ -36,10 +36,10 @@ export function FeatureBlocks({ data }: { data: FeatureBlocksSection }) {
           subheading={
             data.subheading ?? 'Everything you need to host, secure, and grow your video reach'
           }
-          className="mb-12"
+          className="mb-3xl"
         />
 
-        <div className="mx-auto grid justify-center gap-6 sm:w-full md:w-3/4 lg:w-2/3 lg:grid-cols-12">
+        <div className="mx-auto grid justify-center gap-lg sm:w-full md:w-3/4 lg:w-2/3 lg:grid-cols-12">
           {items.map((feat) => {
             const Icon = iconMap[feat.iconName] ?? Gauge;
             const accent = accentMap[feat.accentColor] ?? accentMap.blue;
@@ -48,9 +48,8 @@ export function FeatureBlocks({ data }: { data: FeatureBlocksSection }) {
             return (
               <Card
                 key={feat.id}
-                className={`group flex flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-brand/40 ${colSpan}`}
+                className={`group py-0 flex flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-brand/40 ${colSpan}`}
               >
-                {feat.image && (
                   <div className="relative h-40 w-full overflow-hidden bg-muted/30 md:h-55">
                     <img
                       src={mediaUrl(feat.image)}
@@ -58,9 +57,8 @@ export function FeatureBlocks({ data }: { data: FeatureBlocksSection }) {
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                )}
                 <CardHeader className="pb-0">
-                  <div className="mb-4 flex items-center gap-3">
+                  <div className="mb-md flex items-center gap-sm">
                     <span
                       className={`flex h-10 w-10 items-center justify-center rounded-xl ${accent}`}
                     >
