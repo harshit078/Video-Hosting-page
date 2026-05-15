@@ -1,0 +1,140 @@
+export type StrapiMedia = {
+  url: string;
+  alternativeText?: string | null;
+  width?: number;
+  height?: number;
+} | null;
+
+export type StrapiLink = {
+  id: number;
+  label: string;
+  href: string;
+};
+
+export type NavbarData = {
+  id: number;
+  logo: StrapiMedia;
+  logoText: string;
+  links: StrapiLink[];
+  ctaLabel?: string;
+  ctaHref?: string;
+};
+
+export type FooterColumn = {
+  id: number;
+  title: string;
+  links: StrapiLink[];
+};
+
+export type FooterData = {
+  id: number;
+  logo: StrapiMedia;
+  columns: FooterColumn[];
+  copyright?: string;
+};
+
+export type HeroSection = {
+  __component: 'sections.hero';
+  id: number;
+  eyebrow?: string;
+  headline: string;
+  subheadline?: string;
+  primaryCtaLabel?: string;
+  primaryCtaHref?: string;
+  secondaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+  heroImage?: StrapiMedia;
+  heroImageUrl?: string;
+};
+
+export type TrustedBySection = {
+  __component: 'sections.logo-cloud';
+  id: number;
+  heading?: string;
+  logos: Array<{
+    id: number;
+    name: string;
+    image?: StrapiMedia;
+    imageUrl?: string;
+  }>;
+};
+
+export type TestimonialsSection = {
+  __component: 'sections.testimonials';
+  id: number;
+  heading?: string;
+  items: Array<{
+    id: number;
+    quote: string;
+    authorName: string;
+    authorTitle?: string;
+    authorAvatarUrl?: string;
+  }>;
+};
+
+export type CallToActionCardSection = {
+  __component: 'sections.final-cta';
+  id: number;
+  heading: string;
+  subheadline?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+};
+
+export type FeatureItem = {
+  id: number;
+  eyebrow?: string;
+  heading: string;
+  body?: string;
+  image?: StrapiMedia;
+  iconName: 'gauge' | 'palette' | 'shield' | 'chart';
+  accentColor: 'blue' | 'purple' | 'emerald' | 'amber';
+  colSpan: 'small' | 'large';
+};
+
+export type FeatureBlocksSection = {
+  __component: 'sections.feature-blocks';
+  id: number;
+  badge?: string;
+  heading?: string;
+  subheading?: string;
+  items: FeatureItem[];
+};
+
+export type PricingPlan = {
+  id: number;
+  name: string;
+  price: string;
+  period?: string;
+  description?: string;
+  features?: Array<{ id: number; text: string }>;
+  ctaLabel?: string;
+  ctaHref?: string;
+  popular?: boolean;
+};
+
+export type PricingSection = {
+  __component: 'sections.pricing';
+  id: number;
+  badge?: string;
+  heading?: string;
+  subheading?: string;
+  plans: PricingPlan[];
+  trustItems?: Array<{ id: number; text: string }>;
+};
+
+export type Section =
+  | HeroSection
+  | TrustedBySection
+  | FeatureBlocksSection
+  | PricingSection
+  | TestimonialsSection
+  | CallToActionCardSection;
+
+export type LandingPageData = {
+  id: number;
+  documentId?: string;
+  navbar: NavbarData;
+  sections: Section[];
+  footer: FooterData;
+};

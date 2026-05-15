@@ -27,17 +27,17 @@ export const TestimonialsColumn = (props: {
           ease: 'linear',
           repeatType: 'loop',
         }}
-        className="flex flex-col gap-6 pb-6 bg-background"
+        className="flex flex-col gap-sm pb-sm bg-background"
       >
         {[...new Array(2).fill(0)].map((_, index) => (
           <React.Fragment key={index}>
             {props.testimonials.map(({ text, image, name, role }, i) => (
               <div
-                className="w-full rounded-3xl border border-border bg-card p-10 shadow-lg shadow-primary/10"
+                className="w-full rounded-3xl border border-border bg-card p-xl shadow-lg shadow-primary/10"
                 key={i}
               >
                 <div className="text-sm leading-relaxed text-muted-foreground">{text}</div>
-                <div className="mt-5 flex items-center gap-2">
+                <div className="mt-sm flex items-center gap-2">
                   <img
                     width={40}
                     height={40}

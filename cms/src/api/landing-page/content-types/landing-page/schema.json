@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "landing_pages",
+  "info": {
+    "singularName": "landing-page",
+    "pluralName": "landing-pages",
+    "displayName": "Landing Page",
+    "description": "Homepage content driven by Strapi"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "navbar": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.navbar"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.hero",
+        "sections.logo-cloud",
+        "sections.feature-blocks",
+        "sections.pricing",
+        "sections.faq",
+        "sections.testimonials",
+        "sections.final-cta"
+      ]
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.footer"
+    }
+  }
+}

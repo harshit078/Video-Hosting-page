@@ -6,6 +6,11 @@
   },
   "options": {},
   "attributes": {
+    "logo": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": false
+    },
     "columns": {
       "type": "component",
       "repeatable": true,

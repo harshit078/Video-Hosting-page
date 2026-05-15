@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_pricing_plans",
+  "info": {
+    "displayName": "Pricing Plan",
+    "icon": "dollar-sign"
+  },
+  "options": {},
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "price": { "type": "string", "required": true },
+    "period": { "type": "string", "default": "/month" },
+    "description": { "type": "string" },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.bullet-point"
+    },
+    "ctaLabel": { "type": "string", "default": "Get started" },
+    "ctaHref": { "type": "string", "default": "#" },
+    "popular": { "type": "boolean", "default": false }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_feature_blocks",
+  "info": {
+    "displayName": "Feature Blocks",
+    "icon": "puzzle-piece",
+    "description": "Bento grid of feature cards"
+  },
+  "options": {},
+  "attributes": {
+    "heading": { "type": "string" },
+    "subheading": { "type": "text" },
+    "badge": { "type": "string" },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-item"
+    }
+  }
+}

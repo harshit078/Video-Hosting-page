@@ -7,6 +7,11 @@
   "options": {},
   "attributes": {
     "logoText": { "type": "string", "required": true },
+    "logo": {
+      "type": "media",
+      "allowedTypes": ["images"],
+      "multiple": false
+    },
     "links": {
       "type": "component",
       "repeatable": true,

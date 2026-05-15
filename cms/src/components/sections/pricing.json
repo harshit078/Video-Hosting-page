@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_pricings",
+  "info": {
+    "displayName": "Pricing",
+    "icon": "credit-card",
+    "description": "Pricing plans section"
+  },
+  "options": {},
+  "attributes": {
+    "badge": { "type": "string", "default": "Pricing" },
+    "heading": { "type": "string" },
+    "subheading": { "type": "text" },
+    "plans": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.pricing-plan"
+    },
+    "trustItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.bullet-point"
+    }
+  }
+}
