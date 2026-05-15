@@ -3,6 +3,7 @@ import Hero from './Hero';
 import TrustedBySection from './TrustedBySection';
 import Testimonials from './Testimonials';
 import CallToActionCard from './CallToActionCard';
+import { FeatureBlocks } from './FeatureBlocks';
 
 export default function SectionRenderer({ section }: { section: Section }) {
   switch (section.__component) {
@@ -10,6 +11,8 @@ export default function SectionRenderer({ section }: { section: Section }) {
       return <Hero data={section} />;
     case 'sections.logo-cloud':
       return <TrustedBySection data={section} />;
+    case 'sections.feature-blocks':
+      return <FeatureBlocks data={section} />;
     case 'sections.testimonials':
       return <Testimonials data={section} />;
     case 'sections.final-cta':
