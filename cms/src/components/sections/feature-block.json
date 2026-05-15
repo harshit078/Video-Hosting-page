@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_sections_feature_blocks",
+  "info": {
+    "displayName": "Feature Block",
+    "icon": "puzzle-piece"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": { "type": "string" },
+    "heading": { "type": "string", "required": true },
+    "body": { "type": "text" },
+    "bulletPoints": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.bullet-point"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "imageUrl": { "type": "string" },
+    "imageSide": {
+      "type": "enumeration",
+      "enum": ["left", "right"],
+      "default": "right"
+    }
+  }
+}

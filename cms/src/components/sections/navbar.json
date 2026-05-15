@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_navbars",
+  "info": {
+    "displayName": "Navbar",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "logoText": { "type": "string", "required": true },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    },
+    "ctaLabel": { "type": "string" },
+    "ctaHref": { "type": "string" }
+  }
+}
