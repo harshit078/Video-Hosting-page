@@ -13,3 +13,6 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+.tmp
+# Strapi-generated type declarations
+types/generated

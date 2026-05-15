@@ -57,16 +57,18 @@ export type HeroSection = {
   heroImageUrl?: string;
 };
 
+export type LogoItem = {
+  id: number;
+  name: string;
+  image?: StrapiMedia;
+  imageUrl?: string;
+};
+
 export type TrustedBySection = {
   __component: 'sections.logo-cloud';
   id: number;
   heading?: string;
-  logos: Array<{
-    id: number;
-    name: string;
-    image?: StrapiMedia;
-    imageUrl?: string;
-  }>;
+  logos: LogoItem[];
 };
 
 export type TestimonialsSection = {

@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 
 export type TestimonialItem = {
   text: string;
-  image: string;
+  image?: string;
   name: string;
   role: string;
 };
@@ -38,13 +38,23 @@ export const TestimonialsColumn = (props: {
               >
                 <div className="text-sm leading-relaxed text-muted-foreground">{text}</div>
                 <div className="mt-sm flex items-center gap-2">
-                  <img
-                    width={40}
-                    height={40}
-                    src={image}
-                    alt={name}
-                    className="h-10 w-10 rounded-full object-cover"
-                  />
+                  {image ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      width={40}
+                      height={40}
+                      src={image}
+                      alt={name}
+                      className="h-10 w-10 rounded-full object-cover"
+                    />
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-brand/10 text-sm font-semibold text-brand"
+                    >
+                      {name.charAt(0).toUpperCase()}
+                    </span>
+                  )}
                   <div className="flex flex-col">
                     <div className="font-medium leading-5 tracking-tight text-primary">{name}</div>
                     <div className="leading-5 tracking-tight text-muted-foreground/70">{role}</div>
