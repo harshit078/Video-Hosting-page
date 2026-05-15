@@ -1,61 +1,50 @@
-# 🚀 Getting started with Strapi
+# CMS — Strapi
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+Backend for the video-hosting landing page. Single Strapi instance exposing one Single Type (`landing-page`) consumed by the Next.js frontend in `../video-hosting-assigment`.
 
-### `develop`
+## Scripts
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
-
+```bash
+npm run develop 
+npm run start 
+npm run build 
+npm run strapi 
 ```
+
+Default admin URL: <http://localhost:1337/admin>
+Default public API: <http://localhost:1337/api/landing-page>
+
+## Content model
+
+Single Type: **`landing-page`**
+
+| Field | Type | Notes |
+|---|---|---|
+| `navbar` | Component (single) | Top-level chrome — kept out of the Dynamic Zone so editors can't reorder it. |
+| `sections` | Dynamic Zone | Ordered list of section components. |
+| `footer` | Component (single) | Top-level chrome. |
+
+Allowed `sections` components, rendered in source order:
+
+- `sections.hero` — headline, subheadline, eyebrow, primary/secondary CTAs, hero image
+- `sections.logo-cloud` — heading + repeatable `shared.logo-item` (name, image, imageUrl)
+- `sections.feature-blocks` — bento grid; badge, heading, subheading, repeatable `shared.feature-item` (heading, body, image, `iconName` / `accentColor` / `colSpan` enums)
+- `sections.pricing` — pricing table; badge, heading, subheading, repeatable `shared.pricing-plan`, `shared.bullet-point` trust items
+- `sections.faq` — accordion; repeatable `shared.faq-item`
+- `sections.testimonials` — scrolling columns; repeatable `shared.testimonial-item` (quote, authorName, authorTitle, authorAvatarUrl)
+- `sections.final-cta` — heading, subheadline, CTA
+
+Schema source of truth lives in `src/components/**/*.json` and `src/api/landing-page/content-types/landing-page/schema.json`. Strapi regenerates the TS types in `types/generated/` on every boot.
+
+## Bootstrap (`src/index.ts`)
+
+- Grants `find` on `api::landing-page.landing-page` to the **Public** role on first boot so the FE can fetch anonymously.
+- Calls `src/seed/landing-page.ts` which creates a fully populated entry if no landing-page exists yet. If an entry already exists but is missing the `sections.feature-blocks` section (older schema), it logs a warning and tells you to wipe `.tmp/data.db` for a fresh re-seed.
+
+## Local setup
+
+```bash
+cp .env.example .env       # already exists with sqlite defaults
+npm install
 npm run develop
-# or
-yarn develop
 ```
-
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-```
-yarn strapi deploy
-```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
