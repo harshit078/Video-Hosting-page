@@ -1,6 +1,6 @@
 # Steamly Video hosting application
 
-Built with Nextjs, TailwindCSS, ShadCN with Strapi public REST API, deployed live on Vercel.
+Built with Nextjs, TailwindCSS, ShadCN with Strapi public REST API, deployed live on Vercel. CMS (strapi) is deployed using Render and frontend is deployed using vercel
 
 ## Stack
 
