@@ -36,6 +36,19 @@ npm run lint
 npx tsc --noEmit  
 ```
 
+## Visual Demo
+
+## Desktop Viewport
+
+https://github.com/user-attachments/assets/7a885a37-e3f6-4b7f-a4c5-d7dbaae6d49d
+
+## Mobile Viewport
+
+
+https://github.com/user-attachments/assets/1a88c98b-fc82-46fe-b7af-e979f2b6506d
+
+
+
 ## Project structure
 
 ```
