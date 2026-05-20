@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import type { NavbarData } from "@/lib/types";
 import { ArrowRight, Menu } from "lucide-react";
 import { mediaUrl } from "@/lib/strapi";
 
 export default function Navbar({ data }: { data: NavbarData }) {
+  const logoSrc = mediaUrl(data.logo);
   return (
     <header className="sticky w-[calc(100%-4rem)] border-border/60 bg-muted/50 backdrop-blur mx-auto top-5 z-50 rounded-3xl shadow-lg transition-colors duration-200">
       <nav className="section-container flex items-center justify-between py-md">
@@ -15,10 +17,12 @@ export default function Navbar({ data }: { data: NavbarData }) {
           className="flex items-center gap-sm text-xl font-bold text-primary transition-colors hover:text-primary/80"
         >
           {/* Logo icon */}
-          {data.logo && (
-            <img
-              src={mediaUrl(data.logo)}
+          {logoSrc && (
+            <Image
+              src={logoSrc}
               alt="Logo"
+              width={140}
+              height={48}
               className="h-15 w-auto object-contain"
             />
           )}
@@ -53,8 +57,11 @@ export default function Navbar({ data }: { data: NavbarData }) {
 
         {/* Mobile menu */}
         <details className="relative md:hidden">
-          <summary className="cursor-pointer list-none rounded-lg p-sm text-primary transition-colors hover:bg-muted [&::-webkit-details-marker]:hidden">
-            <Menu size={22} />
+          <summary
+            aria-label="Toggle navigation menu"
+            className="cursor-pointer list-none rounded-lg p-sm text-primary transition-colors hover:bg-muted [&::-webkit-details-marker]:hidden"
+          >
+            <Menu size={22}/>
           </summary>
           <ul className="absolute right-0 mt-sm w-64 rounded-2xl border border-border/50 bg-white p-sm shadow-xl ring-1 ring-black/5 z-50">
             {data.links?.map((link) => (

@@ -42,9 +42,9 @@ export default function CallToActionCard({
                     <ArrowRight />
                   </a>
                 </Button>
-                <span className="text-sm text-white/50">
-                  No credit card required
-                </span>
+                {data.note && (
+                  <span className="text-sm text-white/70">{data.note}</span>
+                )}
               </div>
             )}
 

@@ -25,7 +25,7 @@ export default function PricingCard({ data }: { data: PricingSection }) {
         />
 
         {/* Pricing grid */}
-        <div className="mt-4xl grid items-start gap-lg justify-center mx-auto sm:w-full md:w-3/4 lg:w-2/3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-xl">
+        <div className="mt-4xl grid items-start gap-lg mx-auto sm:w-full md:w-3/4 lg:w-2/3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-xl">
           {plans.map((plan) => {
             const isPopular = plan.popular;
             const features = plan.features ?? [];
@@ -103,7 +103,7 @@ export default function PricingCard({ data }: { data: PricingSection }) {
         </div>
 
         {/* Trust line */}
-        {trustItems.length > 0 ? (
+        {trustItems.length > 0 && (
           <div className="mt-3xl flex flex-wrap items-center justify-center gap-x-xl gap-y-sm text-sm text-muted-foreground">
             {trustItems.map((item) => (
               <span key={item.id} className="flex items-center gap-sm">
@@ -111,18 +111,6 @@ export default function PricingCard({ data }: { data: PricingSection }) {
                 {item.text}
               </span>
             ))}
-          </div>
-        ) : (
-          <div className="mt-3xl flex flex-wrap items-center justify-center gap-x-xl gap-y-sm text-sm text-muted-foreground">
-            <span className="flex items-center gap-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              {trustItems.map((item) => (
-                <span key={item.id} className="flex items-center gap-sm">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                  {item.text}
-                </span>
-              ))}
-            </span>
           </div>
         )}
       </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { mediaUrl } from "@/lib/strapi";
 import type { TrustedBySection, LogoItem } from "@/lib/types";
 import SectionHeader from "@/components/shared/SectionHeader";
@@ -8,9 +9,11 @@ function LogoCard({ logo }: { logo: LogoItem }) {
   return (
     <div className="flex items-center justify-center group">
       {src ? (
-        <img
+        <Image
           src={src}
           alt={logo.name}
+          width={160}
+          height={56}
           className="h-10 w-auto object-contain opacity-70 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 md:h-14"
         />
       ) : (
@@ -26,14 +29,7 @@ export default function TrustedBySection({ data }: { data: TrustedBySection }) {
   const logos = data.logos || [];
 
   return (
-    <section className="relative bg-white py-4xl lg:py-5xl">
-      <div className="section-container">
-        <SectionHeader
-          badge="Trusted globally"
-          heading={data.heading}
-          subheading="Companies we've worked with and trusted by"
-        />
-      </div>
+    <section className="relative sm:w-full md:w-3/4 lg:w-2/3 justify-center mx-auto">
 
       <div className="relative mt-5xl overflow-hidden">
         {/* Scrolling logos */}
@@ -41,6 +37,7 @@ export default function TrustedBySection({ data }: { data: TrustedBySection }) {
           {[0, 1].map((setIndex) => (
             <div
               key={setIndex}
+              aria-hidden={setIndex === 1}
               className="flex min-w-full shrink-0 items-center justify-around gap-3xl px-md"
             >
               {logos.map((logo) => (

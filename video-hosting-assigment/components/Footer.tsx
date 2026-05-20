@@ -1,9 +1,11 @@
+import Image from "next/image";
 import { mediaUrl } from "@/lib/strapi";
 import type { FooterData } from "@/lib/types";
 
 export default function Footer({ data }: { data: FooterData }) {
   const socialLinks = data.socialLinks ?? [];
   const legalLinks = data.legalLinks ?? [];
+  const logoSrc = mediaUrl(data.logo);
 
   return (
     <footer className="border-t border-border/50 bg-gradient-to-b from-muted/50 to-muted">
@@ -12,10 +14,12 @@ export default function Footer({ data }: { data: FooterData }) {
           {/* Branding section */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-sm text-xl font-bold text-primary">
-              {data.logo && (
-                <img
-                  src={mediaUrl(data.logo)}
+              {logoSrc && (
+                <Image
+                  src={logoSrc}
                   alt="Logo"
+                  width={140}
+                  height={48}
                   className="h-15 w-auto object-contain"
                 />
               )}
@@ -34,10 +38,12 @@ export default function Footer({ data }: { data: FooterData }) {
                     rel="noopener noreferrer"
                     className="rounded-lg p-sm text-muted-foreground transition-colors hover:bg-white hover:text-primary hover:shadow-sm"
                   >
-                    {link.icon && (
-                      <img
-                        src={mediaUrl(link.icon)}
+                    {mediaUrl(link.icon) && (
+                      <Image
+                        src={mediaUrl(link.icon)!}
                         alt={link.name}
+                        width={20}
+                        height={20}
                         className="h-5 w-5 object-contain"
                       />
                     )}
