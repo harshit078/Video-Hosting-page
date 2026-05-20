@@ -42,11 +42,17 @@ export default function Navbar({ data }: { data: NavbarData }) {
         </ul>
 
         <div className="hidden items-center gap-sm md:flex">
-          {data.ctaLabel && data.ctaHref && (
+          {data.loginLabel && data.loginHref && (
             <Button
               asChild
-              className="rounded-full shadow-sm transition-all hover:shadow-md"
+              variant="outline"
+              className="px-md rounded-md"
             >
+              <a href={data.loginHref}>{data.loginLabel}</a>
+            </Button>
+          )}
+          {data.ctaLabel && data.ctaHref && (
+            <Button asChild variant="default" className="rounded-full">
               <a href={data.ctaHref}>
                 {data.ctaLabel}
                 <ArrowRight size={18} />
@@ -61,7 +67,7 @@ export default function Navbar({ data }: { data: NavbarData }) {
             aria-label="Toggle navigation menu"
             className="cursor-pointer list-none rounded-lg p-sm text-primary transition-colors hover:bg-muted [&::-webkit-details-marker]:hidden"
           >
-            <Menu size={22}/>
+            <Menu size={22} />
           </summary>
           <ul className="absolute right-0 mt-sm w-64 rounded-2xl border border-border/50 bg-white p-sm shadow-xl ring-1 ring-black/5 z-50">
             {data.links?.map((link) => (

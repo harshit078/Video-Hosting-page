@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "@/components/ui";
+import { Button, AnimatedBadge } from "@/components/ui";
 import { mediaUrl } from "@/lib/strapi";
 import type { HeroSection } from "@/lib/types";
 import { ArrowRight } from "lucide-react";
@@ -12,11 +12,16 @@ export default function Hero({ data }: { data: HeroSection }) {
     <section className="relative overflow-hidden ">
       <div className="relative section-container pt-5xl pb-3xl md:pt-7xl md:pb-4xl">
         <div className="mx-auto text-center animate-slide-up">
-          <h1 className="mx-auto w-[90%] text-balance text-5xl font-bold leading-[1.05] tracking-tight text-primary sm:w-[80%] sm:text-6xl md:w-[70%] md:text-7xl lg:w-[60%] lg:text-8xl">
+          {data.badgeTexts && data.badgeTexts.length > 0 && (
+            <div className="mb-lg flex justify-center">
+              <AnimatedBadge texts={data.badgeTexts.map((b) => b.text)} />
+            </div>
+          )}
+          <h1 className="mx-auto max-w-[100ch] font-medium text-center py-3 text-5xl lg:text-7xl font-display sm:w-[80%] sm:text-4xl md:w-[70%] md:text-5xl lg:w-[60%] lg:text-6xl">
             {data.headline}
           </h1>
           {data.subheadline && (
-            <p className="mx-auto mt-lg w-[90%] text-balance text-lg leading-relaxed text-muted-foreground sm:w-[70%] md:w-[55%] md:text-xl lg:w-[45%]">
+            <p className="mx-auto mt-lg text-zinc-900/60 sm:w-[70%] md:w-[55%] md:text-xl lg:w-[45%]">
               {data.subheadline}
             </p>
           )}
@@ -73,7 +78,7 @@ export default function Hero({ data }: { data: HeroSection }) {
 
               <div className="relative aspect-[16/9] w-full">
                 <Image
-                  src={heroImage || ''}
+                  src={heroImage}
                   alt={data.heroImage?.alternativeText || data.headline}
                   fill
                   priority

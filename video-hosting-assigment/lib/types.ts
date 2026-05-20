@@ -25,6 +25,8 @@ export type NavbarData = {
   links: StrapiLink[];
   ctaLabel?: string;
   ctaHref?: string;
+  loginLabel?: string;
+  loginHref?: string;
 };
 
 export type FooterColumn = {
@@ -57,7 +59,7 @@ export type HeroSection = {
   heroImageUrl?: string;
   backgroundImage?: StrapiMedia;
   backgroundImageUrl?: string;
-  badgeTexts?: string[];
+  badgeTexts?: Array<{ id: number; text: string }>;
 };
 
 export type LogoItem = {

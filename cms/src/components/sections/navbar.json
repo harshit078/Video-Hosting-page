@@ -18,6 +18,8 @@
       "component": "shared.link"
     },
     "ctaLabel": { "type": "string" },
-    "ctaHref": { "type": "string" }
+    "ctaHref": { "type": "string" },
+    "loginLabel": { "type": "string" },
+    "loginHref": { "type": "string" }
   }
 }

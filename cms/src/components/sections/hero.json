@@ -27,6 +27,10 @@
       "allowedTypes": ["images"]
     },
     "backgroundImageUrl": { "type": "string" },
-    "badgeTexts": { "type": "json" }
+    "badgeTexts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.bullet-point"
+    }
   }
 }
