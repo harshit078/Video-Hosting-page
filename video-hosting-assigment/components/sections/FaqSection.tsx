@@ -9,11 +9,11 @@ import {
 import SectionHeader from '@/components/shared/SectionHeader';
 import type { FaqSection as FaqSectionType } from '@/lib/types';
 
-export function FaqSection({ data }: { data: FaqSectionType }) {
+export default function FaqSection({ data }: { data: FaqSectionType }) {
   const faqs = data.items ?? [];
 
   return (
-    <section className="py-6xl lg:py-7xl bg-background">
+    <section className="py-6xl lg:py-7xl ">
       <div className="section-container">
         <div className="sm:w-full md:w-3/4 lg:w-2/3 justify-center mx-auto">
           <SectionHeader

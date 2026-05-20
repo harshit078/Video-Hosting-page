@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import SectionHeader from '@/components/shared/SectionHeader';
 import { Gauge, Palette, ShieldCheck, BarChart3, type LucideIcon } from 'lucide-react';
 import type { FeatureBlocksSection, FeatureItem } from '@/lib/types';
@@ -23,12 +24,12 @@ const colSpanMap: Record<FeatureItem['colSpan'], string> = {
   large: 'lg:col-span-7',
 };
 
-export function FeatureBlocks({ data }: { data: FeatureBlocksSection }) {
+export default function FeatureBlocks({ data }: { data: FeatureBlocksSection }) {
   const items = data.items ?? [];
   if (items.length === 0) return null;
 
   return (
-    <section className="bg-muted/40 py-6xl lg:py-7xl">
+    <section className=" py-6xl lg:py-7xl">
       <div className="section-container">
         <SectionHeader
           badge={data.badge ?? 'Built for video'}
@@ -39,23 +40,28 @@ export function FeatureBlocks({ data }: { data: FeatureBlocksSection }) {
           className="mb-3xl"
         />
 
-        <div className="mx-auto grid justify-center gap-lg sm:w-full md:w-3/4 lg:w-2/3 lg:grid-cols-12">
+        <div className="mx-auto grid gap-lg sm:w-full md:w-3/4 lg:w-2/3 lg:grid-cols-12">
           {items.map((feat) => {
             const Icon = iconMap[feat.iconName] ?? Gauge;
             const accent = accentMap[feat.accentColor] ?? accentMap.blue;
             const colSpan = colSpanMap[feat.colSpan] ?? colSpanMap.small;
+            const imageSrc = mediaUrl(feat.image);
 
             return (
               <Card
                 key={feat.id}
                 className={`group py-0 flex flex-col overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-brand/40 ${colSpan}`}
               >
-                  <div className="relative h-40 w-full overflow-hidden bg-muted/30 md:h-55">
-                    <img
-                      src={mediaUrl(feat.image)}
-                      alt={feat.heading}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                  <div className="relative h-40 w-full overflow-hidden  md:h-55">
+                    {imageSrc && (
+                      <Image
+                        src={imageSrc}
+                        alt={feat.heading}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    )}
                   </div>
                 <CardHeader className="pb-0">
                   <div className="mb-md flex items-center gap-sm">

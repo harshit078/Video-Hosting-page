@@ -9,6 +9,12 @@
     "heading": { "type": "string", "required": true },
     "subheadline": { "type": "text" },
     "ctaLabel": { "type": "string" },
-    "ctaHref": { "type": "string" }
+    "ctaHref": { "type": "string" },
+    "note": { "type": "string" },
+    "trustItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.bullet-point"
+    }
   }
 }

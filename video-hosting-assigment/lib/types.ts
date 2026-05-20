@@ -55,6 +55,9 @@ export type HeroSection = {
   secondaryCtaHref?: string;
   heroImage?: StrapiMedia;
   heroImageUrl?: string;
+  backgroundImage?: StrapiMedia;
+  backgroundImageUrl?: string;
+  badgeTexts?: string[];
 };
 
 export type LogoItem = {
@@ -67,14 +70,18 @@ export type LogoItem = {
 export type TrustedBySection = {
   __component: 'sections.logo-cloud';
   id: number;
+  badge?: string;
   heading?: string;
+  subheading?: string;
   logos: LogoItem[];
 };
 
 export type TestimonialsSection = {
   __component: 'sections.testimonials';
   id: number;
+  badge?: string;
   heading?: string;
+  subheading?: string;
   items: Array<{
     id: number;
     quote: string;
@@ -91,6 +98,8 @@ export type CallToActionCardSection = {
   subheadline?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  note?: string;
+  trustItems?: Array<{ id: number; text: string }>;
 };
 
 export type FeatureItem = {

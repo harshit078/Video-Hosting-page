@@ -6,7 +6,9 @@
   },
   "options": {},
   "attributes": {
+    "badge": { "type": "string" },
     "heading": { "type": "string" },
+    "subheading": { "type": "text" },
     "logos": {
       "type": "component",
       "repeatable": true,

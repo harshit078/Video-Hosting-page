@@ -19,6 +19,14 @@
       "required": false,
       "allowedTypes": ["images"]
     },
-    "heroImageUrl": { "type": "string" }
+    "heroImageUrl": { "type": "string" },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "backgroundImageUrl": { "type": "string" },
+    "badgeTexts": { "type": "json" }
   }
 }

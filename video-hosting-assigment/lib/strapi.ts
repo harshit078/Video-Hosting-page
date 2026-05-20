@@ -10,13 +10,14 @@ const POPULATE = [
   'populate[footer][populate][columns][populate]=links',
   'populate[footer][populate][legalLinks]=true',
   'populate[sections][on][sections.hero][populate][heroImage]=true',
+  'populate[sections][on][sections.hero][populate][backgroundImage]=true',
   'populate[sections][on][sections.logo-cloud][populate][logos][populate][image]=true',
   'populate[sections][on][sections.feature-blocks][populate][items][populate][image]=true',
   'populate[sections][on][sections.pricing][populate][plans][populate]=features',
   'populate[sections][on][sections.pricing][populate][trustItems]=true',
   'populate[sections][on][sections.faq][populate]=items',
   'populate[sections][on][sections.testimonials][populate]=items',
-  'populate[sections][on][sections.final-cta]=true',
+  'populate[sections][on][sections.final-cta][populate][trustItems]=true',
 ].join('&');
 
 export async function getLandingPage(): Promise<LandingPageData> {
