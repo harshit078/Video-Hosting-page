@@ -40,12 +40,19 @@ npx tsc --noEmit
 
 ## Desktop Viewport
 
-https://github.com/user-attachments/assets/7a885a37-e3f6-4b7f-a4c5-d7dbaae6d49d
+
+
+https://github.com/user-attachments/assets/f113feb4-d1e1-429e-95e3-b777b1897302
+
+
 
 ## Mobile Viewport
 
 
-https://github.com/user-attachments/assets/1a88c98b-fc82-46fe-b7af-e979f2b6506d
+
+https://github.com/user-attachments/assets/660cc233-166c-4d2d-bfd1-ce9a0e3d9320
+
+
 
 
 
