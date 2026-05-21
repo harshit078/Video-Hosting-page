@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import SectionRenderer from '@/components/sections/SectionRenderer';
 import { getLandingPage } from '@/lib/strapi';
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {
   const data = await getLandingPage();
