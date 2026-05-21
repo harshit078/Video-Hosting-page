@@ -11,7 +11,7 @@
      text-muted-foreground                   → secondary/muted text
      border-border                           → primary border
      bg-secondary / text-secondary-foreground → secondary button (handled by Button variant="secondary")
-     bg-background / text-foreground         → page surfaces
+      / text-foreground         → page surfaces
   */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -51,8 +51,7 @@
 
   /* Fonts */
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-display: "Tiempos Headline", Arial, sans-serif;
 
   /* Radius */
   --radius-sm: calc(var(--radius) * 0.6);
@@ -100,7 +99,7 @@
   --foreground: rgba(28, 25, 23, 1);        /* primary text */
   --muted-foreground: rgba(68, 64, 60, 1);  /* secondary / muted text */
   --border: rgba(215, 211, 208, 1);         /* default border */
-  --border-brand: rgb(0, 94, 255);   /*  brand accent */
+  --border-brand: rgb(108, 92, 231);   /*  brand accent */
 
   /* Primary text color */
   --primary: rgb(23, 26, 28);
@@ -169,7 +168,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
   }
   html {
     @apply font-sans scroll-smooth;
@@ -228,17 +227,26 @@
   .animate-marquee {
     animation: marquee 30s linear infinite;
   }
-  
+
   .animate-marquee:hover {
     animation-play-state: paused;
   }
-  
+
   @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
   
   .section-container {
-    @apply mx-auto px-6 lg:px-8;
+    @apply mx-auto px-6 py-5xl sm:w-full md:w-3/4 lg:w-2/3 lg:py-6xl;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-float {
+    animation: none !important;
   }
 }

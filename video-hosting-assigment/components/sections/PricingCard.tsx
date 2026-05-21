@@ -16,8 +16,7 @@ export default function PricingCard({ data }: { data: PricingSection }) {
   const trustItems = data.trustItems ?? [];
 
   return (
-    <section className="relative bg-gradient-to-b from-background via-muted/30 to-background py-6xl lg:py-7xl">
-      <div className="section-container">
+    <section className="section-container">
         <SectionHeader
           badge={data.badge}
           heading={data.heading}
@@ -25,28 +24,25 @@ export default function PricingCard({ data }: { data: PricingSection }) {
         />
 
         {/* Pricing grid */}
-        <div className="mt-4xl grid items-start gap-lg mx-auto sm:w-full md:w-3/4 lg:w-2/3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-xl">
+        <div className="mt-4xl grid items-start gap-lg sm:grid-cols-2 lg:grid-cols-4 lg:gap-xl">
           {plans.map((plan) => {
             const isPopular = plan.popular;
             const features = plan.features ?? [];
             return (
-              <Card
-                key={plan.id}
-                className={`group relative flex flex-col transition-all duration-300 ${
-                  isPopular
-                    ? "ring-2 ring-brand shadow-xl lg:-translate-y-2"
-                    : "hover:-translate-y-1 hover:shadow-lg hover:ring-1 hover:ring-brand"
-                }`}
-              >
-                {/* Popular ribbon */}
+              <div key={plan.id} className="relative">
+                {/* Popular badge on border */}
                 {isPopular && (
-                  <div className="absolute left-1/4 translate-x-1/2">
-                    <span className="rounded-full bg-brand px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow-md">
-                      Most Popular
-                    </span>
+                  <div className="absolute -top-4 lg:-top-6 inset-x-0 w-1/2 mx-auto text-center rounded-full bg-brand px-4 py-1.5 text-xs font-semibold text-white z-10">
+                      Popular
                   </div>
                 )}
-
+                <Card
+                  className={`group flex flex-col transition-all duration-300 ${
+                    isPopular
+                      ? "ring-2 ring-brand shadow-xl lg:-translate-y-2" 
+                      : "hover:-translate-y-1 hover:shadow-lg hover:ring-1 hover:ring-brand"
+                  }`}
+                >
                 <CardHeader className="pb-0">
                   <CardTitle className="text-base font-semibold text-primary">
                     {plan.name}
@@ -97,7 +93,8 @@ export default function PricingCard({ data }: { data: PricingSection }) {
                     </a>
                   </Button>
                 </CardFooter>
-              </Card>
+                </Card>
+              </div>
             );
           })}
         </div>
@@ -113,7 +110,6 @@ export default function PricingCard({ data }: { data: PricingSection }) {
             ))}
           </div>
         )}
-      </div>
     </section>
   );
 }

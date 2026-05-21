@@ -55,8 +55,8 @@ export type HeroSection = {
   primaryCtaHref?: string;
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
-  heroImage?: StrapiMedia;
-  heroImageUrl?: string;
+  heroVideo?: StrapiMedia;
+  heroVideoUrl?: string;
   backgroundImage?: StrapiMedia;
   backgroundImageUrl?: string;
   badgeTexts?: Array<{ id: number; text: string }>;
@@ -161,6 +161,17 @@ export type FaqSection = {
   items: FaqItem[];
 };
 
+export type CompareSection = {
+  __component: 'sections.compare';
+  id: number;
+  badge?: string;
+  heading: string;
+  subheading?: string;
+  productLabel?: string;
+  competitorLabel?: string;
+  items: Array<{ id: number; text: string }>;
+};
+
 export type Section =
   | HeroSection
   | TrustedBySection
@@ -168,7 +179,8 @@ export type Section =
   | PricingSection
   | FaqSection
   | TestimonialsSection
-  | CallToActionCardSection;
+  | CallToActionCardSection
+  | CompareSection;
 
 export type LandingPageData = {
   id: number;

@@ -11,7 +11,7 @@ export default function Navbar({ data }: { data: NavbarData }) {
   const logoSrc = mediaUrl(data.logo);
   return (
     <header className="sticky w-[calc(100%-4rem)] border-border/60 bg-muted/50 backdrop-blur mx-auto top-5 z-50 rounded-3xl shadow-lg transition-colors duration-200">
-      <nav className="section-container flex items-center justify-between py-md">
+      <nav className="px-6 flex items-center justify-between py-md">
         <Link
           href="/"
           className="flex items-center gap-sm text-xl font-bold text-primary transition-colors hover:text-primary/80"
@@ -52,7 +52,7 @@ export default function Navbar({ data }: { data: NavbarData }) {
             </Button>
           )}
           {data.ctaLabel && data.ctaHref && (
-            <Button asChild variant="default" className="rounded-full">
+            <Button asChild variant="default" className="rounded-md">
               <a href={data.ctaHref}>
                 {data.ctaLabel}
                 <ArrowRight size={18} />

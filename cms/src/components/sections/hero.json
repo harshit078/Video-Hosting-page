@@ -13,13 +13,13 @@
     "primaryCtaHref": { "type": "string" },
     "secondaryCtaLabel": { "type": "string" },
     "secondaryCtaHref": { "type": "string" },
-    "heroImage": {
+    "heroVideo": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": ["videos"]
     },
-    "heroImageUrl": { "type": "string" },
+    "heroVideoUrl": { "type": "string" },
     "backgroundImage": {
       "type": "media",
       "multiple": false,

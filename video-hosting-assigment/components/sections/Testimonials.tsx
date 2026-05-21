@@ -1,6 +1,8 @@
 'use client';
 
-import { motion } from 'motion/react';
+import React from 'react';
+import Image from 'next/image';
+import { motion, useReducedMotion } from 'motion/react';
 import { TestimonialsColumn, type TestimonialItem } from '@/components/ui';
 import SectionHeader from '@/components/shared/SectionHeader';
 import type { TestimonialsSection } from '@/lib/types';
@@ -22,10 +24,10 @@ export default function Testimonials({ data }: { data: TestimonialsSection }) {
   }));
 
   const [firstColumn, secondColumn, thirdColumn] = divideArray(items, 3);
+  const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="relative my-5xl bg-background">
-      <div className="section-container relative z-10">
+    <section className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,14 +35,53 @@ export default function Testimonials({ data }: { data: TestimonialsSection }) {
           viewport={{ once: true }}
         >
           <SectionHeader
-            badge="Testimonials"
+            badge={data.badge}
             heading={data.heading}
-            subheading="See what our customers have to say about us."
+            subheading={data.subheading}
           />
         </motion.div>
 
-        {/* Testimonials columns in 3 columns*/}
-        <div className="mt-2xl sm:w-full md:w-3/4 lg:w-2/3 justify-center mx-auto flex max-h-[740px] gap-lg overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+      <div className="mt-2xl md:hidden w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <motion.div
+          animate={prefersReducedMotion ? undefined : { translateX: '-50%' }}
+          transition={
+            prefersReducedMotion
+              ? undefined
+              : { duration: 20, repeat: Infinity, ease: 'linear', repeatType: 'loop' }
+          }
+          className="flex gap-4 w-max"
+        >
+          {[0, 1].map((copy) => (
+            <React.Fragment key={copy}>
+              {items.map(({ text, image, name, role }, i) => (
+                <div
+                  key={i}
+                  style={{ width: '72vw', maxWidth: '300px' }}
+                  className="rounded-3xl border border-border bg-card p-xl shadow-lg shadow-primary/10"
+                >
+                  <div className="text-sm leading-relaxed text-muted-foreground">{text}</div>
+                  <div className="mt-sm flex items-center gap-2">
+                    {image ? (
+                      <Image width={40} height={40} src={image} alt={name} className="h-10 w-10 shrink-0 rounded-full object-cover" />
+                    ) : (
+                      <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand/10 text-sm font-semibold text-brand">
+                        {name.charAt(0).toUpperCase()}
+                      </span>
+                    )}
+                    <div className="flex flex-col">
+                      <div className="font-medium leading-5 tracking-tight text-primary">{name}</div>
+                      <div className="leading-5 tracking-tight text-muted-foreground/70">{role}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </React.Fragment>
+          ))}
+        </motion.div>
+      </div>
+
+      <div className="relative z-10">
+        <div className="mt-2xl hidden md:flex justify-center max-h-[740px] gap-lg overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
           <TestimonialsColumn
             testimonials={firstColumn || []}
             duration={6}

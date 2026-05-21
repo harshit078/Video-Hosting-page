@@ -8,8 +8,7 @@ export default function CallToActionCard({
   data: CallToActionCardSection;
 }) {
   return (
-    <section className="py-6xl sm:w-full md:w-3/4 lg:w-2/3 justify-center mx-auto lg:py-7xl">
-      <div className="section-container">
+    <section className="section-container">
         <div className="relative overflow-hidden rounded-3xl gradient-cta px-xl py-5xl text-center sm:px-4xl lg:px-6xl lg:py-7xl">
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute -left-1/4 -top-1/4 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
@@ -47,24 +46,8 @@ export default function CallToActionCard({
                 )}
               </div>
             )}
-
-            <div className="mt-3xl flex flex-wrap items-center justify-center gap-lg text-sm text-white/50">
-              <div className="flex items-center gap-sm">
-                <ShieldCheck size={18} color="green" />
-                <span>Enterprise-grade security</span>
-              </div>
-              <div className="flex items-center gap-sm">
-                <Zap size={18} color="yellow" />
-                <span>99.99% uptime</span>
-              </div>
-              <div className="flex items-center gap-sm">
-                <Cloud size={18} color="white" />
-                <span>Global CDN</span>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
     </section>
   );
 }

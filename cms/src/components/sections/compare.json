@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_sections_compares",
+  "info": {
+    "displayName": "Compare",
+    "icon": "check-square"
+  },
+  "options": {},
+  "attributes": {
+    "badge": { "type": "string" },
+    "heading": { "type": "string", "required": true },
+    "subheading": { "type": "text" },
+    "productLabel": { "type": "string" },
+    "competitorLabel": { "type": "string" },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.bullet-point"
+    }
+  }
+}

@@ -1,8 +1,22 @@
 import type { Core } from '@strapi/strapi';
 
+type FeatureBlocksSection = {
+  __component: 'sections.feature-blocks';
+  badge: string;
+  heading: string;
+  subheading: string;
+  items: Array<{
+    eyebrow: string;
+    heading: string;
+    body: string;
+    iconName: 'gauge' | 'palette' | 'shield' | 'chart';
+    accentColor: 'blue' | 'purple' | 'emerald' | 'amber';
+    colSpan: 'small' | 'large';
+  }>;
+};
+
 // Defined the feature blocks section data
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const featureBlocksSection: any = {
+const featureBlocksSection: FeatureBlocksSection = {
   __component: 'sections.feature-blocks',
   badge: 'Features',
   heading: 'Packed with features for every need',
@@ -85,6 +99,8 @@ export async function seedLandingPage(strapi: Core.Strapi) {
         ],
         ctaLabel: 'Sign up',
         ctaHref: '#signup',
+        loginLabel: 'Log in',
+        loginHref: '#login',
       },
       sections: [
         {
@@ -92,16 +108,25 @@ export async function seedLandingPage(strapi: Core.Strapi) {
           headline: 'Video hosting designed for speed, scale, and growth',
           subheadline:
             'Upload, manage, and stream high-quality video with global delivery, powerful analytics, and seamless playback across every device.',
+          badgeTexts: [
+            { text: 'Now with AI-powered transcoding' },
+            { text: 'Global CDN in 180+ regions' },
+            { text: 'New: Analytics 2.0 is live' },
+          ],
           primaryCtaLabel: 'Get started',
           primaryCtaHref: '#signup',
           secondaryCtaLabel: 'Book a demo',
           secondaryCtaHref: '#demo',
-          heroImageUrl:
-            'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80',
+          heroVideoUrl:
+            'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+          backgroundImageUrl:
+            'https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&w=1920&q=80',
         },
         {
           __component: 'sections.logo-cloud',
+          badge: 'Trusted globally',
           heading: 'Trusted by teams shipping video at scale',
+          subheading: "Companies we've worked with and trusted by",
           logos: [
             { name: 'Airbnb' },
             { name: 'Nike' },
@@ -113,7 +138,9 @@ export async function seedLandingPage(strapi: Core.Strapi) {
         featureBlocksSection,
         {
           __component: 'sections.testimonials',
+          badge: 'Testimonials',
           heading: 'Loved by engineering and product teams',
+          subheading: 'See what our customers have to say about us.',
           items: [
             {
               quote:
@@ -181,14 +208,168 @@ export async function seedLandingPage(strapi: Core.Strapi) {
           ],
         },
         {
+          __component: 'sections.compare',
+          heading: 'Why modern teams choose Streamly',
+          subheading: 'Streamly is designed to outperform traditional video hosting platforms.',
+          productLabel: 'Streamly',
+          competitorLabel: 'Other Companies',
+          items: [
+            { text: 'Video delivered instantly at any scale' },
+            { text: 'No back-and-forth pricing emails' },
+            { text: 'Only reach qualified, engaged viewers' },
+            { text: 'All content managed in one dashboard' },
+            { text: 'Focus on content, not infrastructure' },
+            { text: 'Works while you sleep — 99.99% uptime' },
+            { text: 'Get notified instantly on any platform' },
+            { text: 'Custom link sharing with team members' },
+            { text: 'Optimized playback across every device' },
+          ],
+        },
+        {
+          __component: 'sections.pricing',
+          badge: 'Pricing',
+          heading: 'Simple, transparent pricing',
+          subheading: 'Start free, scale as you grow. No hidden fees.',
+          plans: [
+            {
+              name: 'Starter',
+              price: '$0',
+              period: '/month',
+              description: 'For side projects and experimentation',
+              features: [
+                { text: '10 GB storage' },
+                { text: '100 GB bandwidth' },
+                { text: 'Basic analytics' },
+                { text: 'Email support' },
+                { text: 'Limited API Access' },
+                { text: 'Limited Contracts' },
+              ],
+              ctaLabel: 'Get started',
+              ctaHref: '#signup',
+              popular: false,
+            },
+            {
+              name: 'Pro',
+              price: '$49',
+              period: '/month',
+              description: 'For growing teams and businesses',
+              features: [
+                { text: '500 GB storage' },
+                { text: '2 TB bandwidth' },
+                { text: 'Advanced analytics' },
+                { text: 'Priority support' },
+                { text: 'Custom player branding' },
+                { text: 'API access' },
+              ],
+              ctaLabel: 'Start free trial',
+              ctaHref: '#signup',
+              popular: true,
+            },
+            {
+              name: 'Business',
+              price: '$299',
+              period: '/month',
+              description: 'For enterprise needs and Business requirements',
+              features: [
+                { text: 'Uncapped storage' },
+                { text: 'Live chat priority support' },
+                { text: 'SSO integration' },
+                { text: 'Custom contracts' },
+                { text: 'Team Support On Call' },
+                { text: 'SSO & Security integration' },
+              ],
+              ctaLabel: 'Get started',
+              ctaHref: '#signup',
+              popular: false,
+            },
+            {
+              name: 'Enterprise',
+              price: 'Custom',
+              period: '/month',
+              description: 'For large-scale video operations',
+              features: [
+                { text: 'Unlimited storage' },
+                { text: 'Unlimited bandwidth' },
+                { text: 'Dedicated support' },
+                { text: 'SLA guarantee' },
+                { text: 'Custom integrations' },
+                { text: 'SSO & advanced security' },
+              ],
+              ctaLabel: 'Contact sales',
+              ctaHref: '#contact',
+              popular: false,
+            },
+          ],
+          trustItems: [
+            { text: 'No credit card required' },
+            { text: 'Cancel anytime' },
+            { text: '14-day free trial on Pro' },
+            { text: 'Team support and contact' },
+          ],
+        },
+        {
+          __component: 'sections.faq',
+          badge: 'FAQ',
+          heading: 'Frequently asked questions',
+          subheading: 'Everything you need to know about Streamly.',
+          items: [
+            {
+              question: 'How does the free tier work?',
+              answer:
+                'The Starter plan is completely free with 10 GB of storage and 100 GB of monthly bandwidth. No credit card required. You can upgrade anytime as your needs grow.',
+            },
+            {
+              question: 'What video formats do you support?',
+              answer:
+                'We support all major video formats including MP4, MOV, WebM, AVI, and MKV. Videos are automatically transcoded to adaptive bitrate HLS for optimal playback across all devices.',
+            },
+            {
+              question: 'Can I customize the video player?',
+              answer:
+                'Yes! Pro and Enterprise plans include full player customization — colors, logo, controls, and more. You can also use our Player API for complete control over the viewing experience.',
+            },
+            {
+              question: 'How fast is video delivery?',
+              answer:
+                'Videos are delivered through our global CDN with 180+ edge locations. Most viewers experience sub-second startup times regardless of their location.',
+            },
+            {
+              question: 'Do you offer live streaming?',
+              answer:
+                'Live streaming is available on Pro and Enterprise plans. Features include low-latency streaming, DVR, and automatic recording for on-demand replay.',
+            },
+            {
+              question: 'What kind of analytics do you provide?',
+              answer:
+                'We provide detailed analytics including play counts, watch time, engagement heatmaps, viewer geography, device breakdown, and drop-off points. Enterprise plans include custom event tracking and data export.',
+            },
+            {
+              question: 'Is my content secure?',
+              answer:
+                'Absolutely. We offer signed URLs, domain restrictions, geo-blocking, and DRM protection. All data is encrypted in transit and at rest. Enterprise plans include additional compliance certifications.',
+            },
+          ],
+        },
+        {
           __component: 'sections.final-cta',
           heading: 'Ship video your viewers will love',
           subheadline: 'Start with our free tier — no credit card required. Upgrade when you scale.',
           ctaLabel: 'Get started',
           ctaHref: '#signup',
+          note: 'No credit card required',
+          trustItems: [
+            { text: 'Enterprise-grade security' },
+            { text: '99.99% uptime' },
+            { text: 'Global CDN' },
+          ],
         },
       ],
       footer: {
+        tagline: 'The modern video hosting platform for businesses. Fast, secure, and reliable streaming for your content.',
+        socialLinks: [
+          { name: 'Facebook', url: 'https://facebook.com' },
+          { name: 'Linkedin', url: 'https://linkedin.com' },
+        ],
         columns: [
           {
             title: 'Product',
@@ -227,6 +408,11 @@ export async function seedLandingPage(strapi: Core.Strapi) {
           },
         ],
         copyright: '© 2026 Streamly Inc. All rights reserved.',
+        legalLinks: [
+          { label: 'Privacy Policy', href: '#privacy' },
+          { label: 'Terms of Service', href: '#terms' },
+          { label: 'Cookies', href: '#cookies' },
+        ],
       },
     },
   });

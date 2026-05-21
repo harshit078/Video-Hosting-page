@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { mediaUrl } from "@/lib/strapi";
 import type { TrustedBySection, LogoItem } from "@/lib/types";
-import SectionHeader from "@/components/shared/SectionHeader";
 
 function LogoCard({ logo }: { logo: LogoItem }) {
   const src = mediaUrl(logo.image, logo.imageUrl);
@@ -29,8 +28,7 @@ export default function TrustedBySection({ data }: { data: TrustedBySection }) {
   const logos = data.logos || [];
 
   return (
-    <section className="relative sm:w-full md:w-3/4 lg:w-2/3 justify-center mx-auto">
-
+    <section className="section-container">
       <div className="relative mt-5xl overflow-hidden">
         {/* Scrolling logos */}
         <div className="flex animate-marquee">

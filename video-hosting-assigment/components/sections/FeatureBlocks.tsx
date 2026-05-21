@@ -29,8 +29,7 @@ export default function FeatureBlocks({ data }: { data: FeatureBlocksSection }) 
   if (items.length === 0) return null;
 
   return (
-    <section className=" py-6xl lg:py-7xl">
-      <div className="section-container">
+    <section className="section-container">
         <SectionHeader
           badge={data.badge ?? 'Built for video'}
           heading={data.heading ?? 'Packed with features for every need'}
@@ -40,7 +39,7 @@ export default function FeatureBlocks({ data }: { data: FeatureBlocksSection }) 
           className="mb-3xl"
         />
 
-        <div className="mx-auto grid gap-lg sm:w-full md:w-3/4 lg:w-2/3 lg:grid-cols-12">
+        <div className="mx-auto grid gap-lg lg:grid-cols-12">
           {items.map((feat) => {
             const Icon = iconMap[feat.iconName] ?? Gauge;
             const accent = accentMap[feat.accentColor] ?? accentMap.blue;
@@ -91,7 +90,6 @@ export default function FeatureBlocks({ data }: { data: FeatureBlocksSection }) 
             );
           })}
         </div>
-      </div>
     </section>
   );
 }

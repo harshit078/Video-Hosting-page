@@ -26,7 +26,8 @@
         "sections.pricing",
         "sections.faq",
         "sections.testimonials",
-        "sections.final-cta"
+        "sections.final-cta",
+        "sections.compare"
       ]
     },
     "footer": {

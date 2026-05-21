@@ -9,7 +9,7 @@ export default function Footer({ data }: { data: FooterData }) {
 
   return (
     <footer className="border-t border-border/50 bg-gradient-to-b from-muted/50 to-muted">
-      <div className="section-container py-4xl lg:py-5xl">
+      <div className="px-6 py-4xl ">
         <div className="grid gap-3xl lg:grid-cols-6">
           {/* Branding section */}
           <div className="lg:col-span-2">

@@ -12,7 +12,7 @@
       "type": "media",
       "allowedTypes": ["images"],
       "multiple": false,
-      "required": true
+      "required": false
     }
   }
 }

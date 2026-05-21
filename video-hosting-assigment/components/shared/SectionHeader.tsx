@@ -18,18 +18,18 @@ export default function SectionHeader({
   const alignment = align === 'center' ? 'text-center items-center' : 'text-left items-start';
 
   return (
-    <div className={`flex flex-col ${alignment} ${className}`}>
+    <div className={`flex flex-col gap-4 ${alignment} ${className}`}>
       {badge && (
         <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand/5 px-4 py-1.5 text-sm font-semibold text-brand ring-1 ring-inset ring-brand/20">
           <span className="h-1.5 w-1.5 rounded-full bg-brand" />
           {badge}
         </div>
       )}
-      <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl">
+      <h2 className=" font-medium text-4xl text-center font-display lg:text-5xl">
         {heading}
       </h2>
       {subheading && (
-        <p className="mt-4 text-lg text-muted-foreground">{subheading}</p>
+        <p className="text-lg text-muted-foreground">{subheading}</p>
       )}
     </div>
   );

@@ -5,23 +5,22 @@ import type { HeroSection } from "@/lib/types";
 import { ArrowRight } from "lucide-react";
 
 export default function Hero({ data }: { data: HeroSection }) {
-  const heroImage = mediaUrl(data.heroImage, data.heroImageUrl);
+  const heroVideo = mediaUrl(data.heroVideo, data.heroVideoUrl);
   const backgroundImage = mediaUrl(data.backgroundImage, data.backgroundImageUrl);
 
   return (
-    <section className="relative overflow-hidden ">
-      <div className="relative section-container pt-5xl pb-3xl md:pt-7xl md:pb-4xl">
-        <div className="mx-auto text-center animate-slide-up">
+    <section className="p-xl pt-7xl overflow-hidden ">
+        <div className="text-center animate-slide-up">
           {data.badgeTexts && data.badgeTexts.length > 0 && (
             <div className="mb-lg flex justify-center">
               <AnimatedBadge texts={data.badgeTexts.map((b) => b.text)} />
             </div>
           )}
-          <h1 className="mx-auto max-w-[100ch] font-medium text-center py-3 text-5xl lg:text-7xl font-display sm:w-[80%] sm:text-4xl md:w-[70%] md:text-5xl lg:w-[60%] lg:text-6xl">
+          <h1 className="mx-auto font-medium text-center text-5xl font-display  md:w-[55%] md:text-5xl lg:w-[60%] lg:text-6xl">
             {data.headline}
           </h1>
           {data.subheadline && (
-            <p className="mx-auto mt-lg text-zinc-900/60 sm:w-[70%] md:w-[55%] md:text-xl lg:w-[45%]">
+            <p className="mx-auto mt-lg text-zinc-900/60 text-lg md:w-[55%] lg:w-[40%]">
               {data.subheadline}
             </p>
           )}
@@ -53,8 +52,8 @@ export default function Hero({ data }: { data: HeroSection }) {
           </div>
         </div>
 
-        {/* Hero image */}
-        {heroImage && (
+        {/* Hero video */}
+        {heroVideo && (
           <div className="relative mt-3xl animate-fade-in">
             {backgroundImage && (
               <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-screen -translate-x-1/2 -translate-y-1/2">
@@ -70,26 +69,26 @@ export default function Hero({ data }: { data: HeroSection }) {
               </div>
             )}
             <div className="relative z-10 mx-auto w-full sm:w-5/6 md:w-3/4 lg:w-2/3 rounded-2xl border border-white/70 bg-slate-500/10 p-md backdrop-blur">
-              <div className="flex gap-1.5 py-sm">
+              <div className="flex gap-1.5 pb-lg">
                 <div className="h-2.5 w-2.5 rounded-full bg-red-400" />
                 <div className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
                 <div className="h-2.5 w-2.5 rounded-full bg-green-400" />
               </div>
 
               <div className="relative aspect-[16/9] w-full">
-                <Image
-                  src={heroImage}
-                  alt={data.heroImage?.alternativeText || data.headline}
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 66vw"
-                  className="object-cover rounded-2xl"
+                <video
+                  src={heroVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  aria-hidden
+                  className="absolute inset-0 h-full w-full rounded-2xl object-cover"
                 />
               </div>
             </div>
           </div>
         )}
-      </div>
     </section>
   );
 }

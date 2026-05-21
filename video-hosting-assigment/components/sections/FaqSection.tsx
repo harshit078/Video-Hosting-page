@@ -13,9 +13,7 @@ export default function FaqSection({ data }: { data: FaqSectionType }) {
   const faqs = data.items ?? [];
 
   return (
-    <section className="py-6xl lg:py-7xl ">
-      <div className="section-container">
-        <div className="sm:w-full md:w-3/4 lg:w-2/3 justify-center mx-auto">
+    <section className="section-container">
           <SectionHeader
             badge={data.badge}
             heading={data.heading}
@@ -40,8 +38,6 @@ export default function FaqSection({ data }: { data: FaqSectionType }) {
               ))}
             </Accordion>
           </div>
-        </div>
-      </div>
     </section>
   );
 }
