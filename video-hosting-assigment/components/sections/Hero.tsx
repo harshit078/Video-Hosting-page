@@ -68,7 +68,7 @@ export default function Hero({ data }: { data: HeroSection }) {
                 />
               </div>
             )}
-            <div className="relative z-10 mx-auto w-full sm:w-5/6 md:w-3/4 lg:w-2/3 rounded-2xl border border-white/70 bg-slate-500/10 p-md backdrop-blur">
+            <div className="relative z-10 mx-auto w-full sm:w-5/6 md:w-3/4 lg:w-2/3 rounded-2xl border border-white bg-slate-100/70 p-md">
               <div className="flex gap-1.5 pb-lg">
                 <div className="h-2.5 w-2.5 rounded-full bg-red-400" />
                 <div className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
