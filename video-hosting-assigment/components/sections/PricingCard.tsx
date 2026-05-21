@@ -24,13 +24,12 @@ export default function PricingCard({ data }: { data: PricingSection }) {
         />
 
         {/* Pricing grid */}
-        <div className="mt-4xl grid items-start gap-lg sm:grid-cols-2 lg:grid-cols-4 lg:gap-xl">
+        <div className="mt-4xl grid items-start gap-lg sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 lg:gap-xl">
           {plans.map((plan) => {
             const isPopular = plan.popular;
             const features = plan.features ?? [];
             return (
               <div key={plan.id} className="relative">
-                {/* Popular badge on border */}
                 {isPopular && (
                   <div className="absolute -top-4 lg:-top-6 inset-x-0 w-1/2 mx-auto text-center rounded-full bg-brand px-4 py-1.5 text-xs font-semibold text-white z-10">
                       Popular
