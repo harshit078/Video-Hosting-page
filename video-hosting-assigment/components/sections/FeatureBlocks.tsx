@@ -29,7 +29,7 @@ export default function FeatureBlocks({ data }: { data: FeatureBlocksSection }) 
   if (items.length === 0) return null;
 
   return (
-    <section className="section-container">
+    <section id="features" className="section-container scroll-mt-24">
         <SectionHeader
           badge={data.badge ?? 'Built for video'}
           heading={data.heading ?? 'Packed with features for every need'}

@@ -46,6 +46,21 @@ export default function CallToActionCard({
                 )}
               </div>
             )}
+
+            <div className="mt-3xl flex flex-wrap items-center justify-center gap-lg text-sm text-white/50">
+              <div className="flex items-center gap-sm">
+                <ShieldCheck size={18} color="green" />
+                <span>{data.trustItems?.[0].text}</span>
+              </div>
+              <div className="flex items-center gap-sm">
+                <Zap size={18} color="yellow" />
+                <span>{data.trustItems?.[1].text}</span>
+              </div>
+              <div className="flex items-center gap-sm">
+                <Cloud size={18} color="white" />
+                <span>{data.trustItems?.[2].text}</span>
+              </div>
+            </div>
           </div>
         </div>
     </section>

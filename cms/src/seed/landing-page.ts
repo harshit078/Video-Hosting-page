@@ -95,7 +95,7 @@ export async function seedLandingPage(strapi: Core.Strapi) {
           { label: 'Product', href: '#features' },
           { label: 'Pricing', href: '#pricing' },
           { label: 'Customers', href: '#testimonials' },
-          { label: 'Docs', href: '#docs' },
+          { label: 'FAQ', href: '#faq' },
         ],
         ctaLabel: 'Sign up',
         ctaHref: '#signup',

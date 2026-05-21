@@ -27,7 +27,7 @@ export default function Testimonials({ data }: { data: TestimonialsSection }) {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="section-container">
+    <section id="testimonials" className="section-container scroll-mt-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

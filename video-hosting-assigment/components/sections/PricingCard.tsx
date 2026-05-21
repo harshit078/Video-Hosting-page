@@ -16,7 +16,7 @@ export default function PricingCard({ data }: { data: PricingSection }) {
   const trustItems = data.trustItems ?? [];
 
   return (
-    <section className="section-container">
+    <section id="pricing" className="section-container scroll-mt-24">
         <SectionHeader
           badge={data.badge}
           heading={data.heading}

@@ -13,7 +13,7 @@ export default function FaqSection({ data }: { data: FaqSectionType }) {
   const faqs = data.items ?? [];
 
   return (
-    <section className="section-container">
+    <section id="faq" className="section-container scroll-mt-24">
           <SectionHeader
             badge={data.badge}
             heading={data.heading}
