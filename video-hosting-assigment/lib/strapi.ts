@@ -11,6 +11,7 @@ const POPULATE = [
   'populate[footer][populate][legalLinks]=true',
   'populate[sections][on][sections.hero][populate][heroImage]=true',
   'populate[sections][on][sections.hero][populate][backgroundImage]=true',
+  'populate[sections][on][sections.hero][populate][badgeTexts]=true',
   'populate[sections][on][sections.logo-cloud][populate][logos][populate][image]=true',
   'populate[sections][on][sections.feature-blocks][populate][items][populate][image]=true',
   'populate[sections][on][sections.pricing][populate][plans][populate]=features',
